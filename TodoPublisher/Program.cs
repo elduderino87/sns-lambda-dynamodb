@@ -1,12 +1,6 @@
-﻿using Amazon.Runtime;
-using System;
+﻿using System;
 using Amazon.SimpleNotificationService;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using TodoPublisher;
 
 namespace TodoPublisher
 {
@@ -36,7 +30,7 @@ namespace TodoPublisher
                         };
                         var todoSerialized = JsonConvert.SerializeObject(todo, Formatting.Indented);
                         Console.WriteLine("Creating Todo: " + todoSerialized);
-                        client.Publish(TODO_CREATED_ARN, todoSerialized);
+                       var res = client.Publish(TODO_CREATED_ARN, todoSerialized);
                     }
                 }
             }
