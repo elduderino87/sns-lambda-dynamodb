@@ -23,9 +23,10 @@ namespace TodoPublisher
                     {
                         var todo = new TodoItem()
                         {
+                            CreatedOn = DateTime.UtcNow,
                             Description = $"Test Todo Created on {DateTime.Now.ToString()}",
-                            StudentId = 19,
-                            Title = $"Todo 1",
+                            StudentId = new Random().Next(1, 11),
+                            Title = $"Todo {new Random().Next(1, 101)}",
                             TodoType = "Self Placement"
                         };
                         var todoSerialized = JsonConvert.SerializeObject(todo, Formatting.Indented);
